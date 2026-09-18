@@ -12,6 +12,13 @@ def get_valid_input():
         else:
             return int(user_input)
 
+def process_delivery(current_total, new_value):
+    current_total += new_value
+    return current_total
+
+# def calculate_tax(amount):
+#     return amount * 0.1
+
  # Main
 inventory = 0
 failed_entries = 0
@@ -21,6 +28,13 @@ while True:
 
     if result == "quit":
         break
+
+    inventory = process_delivery(inventory, result)
+
+print(failed_entries)
+print(inventory)
+
+
 
 #     stock_quantity = int(user_input)
 

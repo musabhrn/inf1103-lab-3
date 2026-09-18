@@ -16,12 +16,14 @@ def process_delivery(current_total, new_value):
     current_total += new_value
     return current_total
 
-# def calculate_tax(amount):
-#     return amount * 0.1
+def calculate_tax(amount):
+     return amount * 0.1
 
  # Main
 inventory = 0
 failed_entries = 0
+count_deliveries = 0
+tax = 0
 
 while True:
     result = get_valid_input()
@@ -29,10 +31,16 @@ while True:
     if result == "quit":
         break
 
+    count_deliveries += 1
+
+    tax += calculate_tax(inventory)
+
     inventory = process_delivery(inventory, result)
 
 print(failed_entries)
 print(inventory)
+print(tax)
+print(count_deliveries)
 
 
 
